@@ -39,4 +39,10 @@ The glitch effect can be reused anywhere: write `<div class="glitch"><img src=".
 
 **Releases:** each movement has two singles, the Part and the sample it was born from, for ten in total before the full album. Each movement has two buttons in a `.ric-listen` group.
 
+**Artwork is revealed as it's released.** Unreleased artwork is not in the repo at all, so it can't be found by URL. Each unreleased spot shows a `.ric-locked` "decoding" placeholder.
+
+On release day:
+1. Export the art from Canva into `images/re-in-coding/`.
+2. Replace the placeholder with the image. A cover is a plain `<img>`. A sample uses `<div class="glitch"><img ...></div>` so it gets the glitch reveal.
+
 **To switch on a released single:** find its button, for example `sample 2: coming soon`. Replace it with `<a class="term-btn" href="BANDCAMP LINK">listen: sample 2</a>`. Then update the "3 of 10 out now" count above the movements.

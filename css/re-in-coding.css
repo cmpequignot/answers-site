@@ -248,6 +248,50 @@
   .ric-part, .ric-part--no-cover { grid-template-columns: 1fr; }
 }
 
+/* Placeholder for artwork that hasn't been released yet.
+   Swap it for the real <img> (or .glitch for a sample) on release day. */
+.ric-locked {
+  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 12px;
+  padding: 10%;
+  border: 1px dashed var(--line);
+  background:
+    repeating-linear-gradient(0deg, rgba(125, 255, 154, 0.035) 0 2px, transparent 2px 5px),
+    var(--panel);
+  font-size: 0.8rem;
+  color: var(--dim);
+  overflow: hidden;
+}
+.ric-locked__file { color: var(--text); }
+.ric-locked__file::before { content: "> "; color: var(--green); }
+.ric-locked__bar {
+  position: relative;
+  height: 10px;
+  border: 1px solid var(--line);
+}
+.ric-locked__bar::after {
+  content: "";
+  position: absolute;
+  inset: 1px auto 1px 1px;
+  width: 0;
+  background: var(--green);
+  opacity: 0.7;
+  animation: ric-decode 4.5s steps(18, end) infinite;
+}
+@keyframes ric-decode {
+  0%   { width: 0; }
+  70%  { width: 62%; }
+  71%, 100% { width: 0; }
+}
+.ric-locked__status::after {
+  content: "_";
+  animation: ric-blink 1s steps(1, end) infinite;
+}
+.ric-locked--small { font-size: 0.7rem; gap: 8px; }
+
 /* Note: .glitch must keep its white background. The effect rebuilds the
    image by multiply-blending its colour layers, which needs a white base. */
 
@@ -280,9 +324,9 @@
 .ric-end { text-align: center; }
 .ric-end h2 { color: var(--text); }
 .ric-end p { color: var(--dim); max-width: 34em; margin: 0 auto 2em; }
-.ric-ai { margin-top: 64px; font-size: 0.8rem; color: var(--dim); }
-.ric-ai::before { content: "# "; color: var(--pink); }
 
 @media (prefers-reduced-motion: reduce) {
-  .ric-hero__bg, .ric-title::before, .ric-title::after, .ric-cursor { animation: none; }
+  .ric-hero__bg, .ric-title::before, .ric-title::after, .ric-cursor,
+  .ric-locked__bar::after, .ric-locked__status::after { animation: none; }
+  .ric-locked__bar::after { width: 62%; }
 }
