@@ -30,4 +30,19 @@ The artwork is one flattened image, so the glitch is done by stacking copies of 
 
 It plays once when scrolled into view and gives a short glitch on hover. Visitors with reduced motion turned on see the static image.
 
-The **Learn More** button links to `#` for now. Point it at the RE: in_coding page once that exists.
+The **Learn More** button links to the RE: in_coding page.
+
+The glitch effect can be reused anywhere: write `<div class="glitch"><img src="..." alt="..."></div>` and `js/main.js` builds the layers. The page also needs the three hidden SVG colour filters from the bottom of `index.html`. A `.glitch` must keep its white background, because the layers are multiply-blended.
+
+## RE: in_coding page
+`re-in-coding.html` uses a retro-terminal theme (`css/re-in-coding.css`) and the same header as the rest of the site. The artwork in `images/re-in-coding/` comes from the Canva design above. The text and performance photos come from the band's project proposal.
+
+**Releases:** each movement has two singles, the Part and the sample it was born from, for ten in total before the full album. Each movement has two buttons in a `.ric-listen` group.
+
+**Artwork is revealed as it's released.** Unreleased artwork is not in the repo at all, so it can't be found by URL. Each unreleased spot shows a `.ric-locked` "decoding" placeholder.
+
+On release day:
+1. Export the art from Canva into `images/re-in-coding/`.
+2. Replace the placeholder with the image. A cover is a plain `<img>`. A sample uses `<div class="glitch"><img ...></div>` so it gets the glitch reveal.
+
+**To switch on a released single:** find its button, for example `sample 2: coming soon`. Replace it with `<a class="term-btn" href="BANDCAMP LINK">listen: sample 2</a>`. Then update the "3 of 10 out now" count above the movements.
