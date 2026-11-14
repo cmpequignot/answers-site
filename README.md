@@ -37,4 +37,6 @@ The glitch effect can be reused anywhere: write `<div class="glitch"><img src=".
 ## RE: in_coding page
 `re-in-coding.html` uses a retro-terminal theme (`css/re-in-coding.css`) and the same header as the rest of the site. The artwork in `images/re-in-coding/` comes from the Canva design above. The text and performance photos come from the band's project proposal.
 
-**To add a listening link:** find that part's `listen: coming soon` button. Change it to `<a class="term-btn" href="LINK">listen</a>`, with the `aria-disabled` attribute removed.
+**Releases:** each movement has two singles, the Part and the sample it was born from, for ten in total before the full album. Each movement has two buttons in a `.ric-listen` group.
+
+**To switch on a released single:** find its button, for example `sample 2: coming soon`. Replace it with `<a class="term-btn" href="BANDCAMP LINK">listen: sample 2</a>`. Then update the "3 of 10 out now" count above the movements.

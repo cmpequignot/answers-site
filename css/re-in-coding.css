@@ -235,6 +235,10 @@
   font-size: 0.88rem;
 }
 .ric-part dt { color: var(--dim); }
+.ric-listen { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.ric-release { max-width: 46em; color: var(--dim); margin-bottom: 1.5em; }
+.ric-release span { color: var(--pink); }
 .ric-part dd { margin: 0; }
 @media (max-width: 960px) {
   .ric-part, .ric-part--no-cover { grid-template-columns: 1fr 1fr; }
