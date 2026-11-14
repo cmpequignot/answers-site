@@ -1,0 +1,446 @@
+/* ==========================================================================
+   ANSWERS — site styles
+   Mirrors the original Squarespace look: Poppins, black/white sections,
+   navy (#253551) buttons, wave dividers.
+   ========================================================================== */
+
+:root {
+  --black: #000;
+  --white: #fff;
+  --navy: #253551;
+  --pink: #ff6ec7;          /* matches the RE: in_coding artwork */
+  --gutter: clamp(16px, 4vw, 52px);
+  --max: 1400px;
+
+  --fs-h1: clamp(2.6rem, 5.4vw, 4.75rem);   /* ~76px */
+  --fs-h2: clamp(2rem, 3.6vw, 3.14rem);     /* ~50px */
+  --fs-h3: clamp(1.6rem, 3vw, 2.67rem);     /* ~43px */
+  --fs-h4: clamp(1.15rem, 1.8vw, 1.55rem);  /* ~25px */
+  --fs-body: 1.077rem;                      /* ~17px */
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: "Poppins", system-ui, sans-serif;
+  font-size: var(--fs-body);
+  font-weight: 400;
+  line-height: 1.8;
+  color: var(--black);
+  background: var(--white);
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+h1, h2, h3, h4 {
+  font-weight: 500;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.5em;
+}
+h1 { font-size: var(--fs-h1); }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+h4 { font-size: var(--fs-h4); }
+
+p { margin: 0 0 1em; }
+
+a { color: inherit; }
+
+.container {
+  width: 100%;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+.section { position: relative; padding: clamp(64px, 9vw, 120px) 0; }
+.section--black { background: var(--black); color: var(--white); }
+.section--navy  { background: var(--navy);  color: var(--white); }
+.center { text-align: center; }
+
+.eyebrow {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 1.5em;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-block;
+  padding: 0.9em 1.6em;
+  font: inherit;
+  line-height: 1.2;
+  text-decoration: none;
+  background: var(--navy);
+  color: var(--white);
+  border: 0;
+  border-radius: 0;
+  transition: opacity 0.2s;
+}
+.btn:hover { opacity: 0.8; }
+.btn--light { background: var(--white); color: var(--black); }
+
+/* ---------- Header ---------- */
+.site-header {
+  position: absolute;
+  inset: 0 0 auto 0;
+  z-index: 20;
+  padding: 36px 0;
+  color: var(--black);
+}
+.site-header--light { color: var(--white); }
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.site-title {
+  font-size: clamp(1.1rem, 2vw, 1.75rem);
+  font-weight: 300;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
+}
+
+.site-nav { display: flex; align-items: center; gap: 22px; }
+.site-nav a { text-decoration: none; font-size: 1rem; }
+.site-nav a[aria-current="page"] {
+  text-decoration: underline;
+  text-underline-offset: 8px;
+  text-decoration-thickness: 1px;
+}
+.social { display: flex; gap: 14px; margin-left: 8px; }
+.social svg { width: 18px; height: 18px; display: block; }
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  color: inherit;
+  padding: 8px;
+  cursor: pointer;
+}
+.menu-toggle span {
+  display: block;
+  width: 26px;
+  height: 1.5px;
+  background: currentColor;
+  margin: 6px 0;
+}
+
+@media (max-width: 860px) {
+  .menu-toggle { display: block; }
+  .site-nav {
+    position: fixed;
+    inset: 0;
+    flex-direction: column;
+    justify-content: center;
+    gap: 28px;
+    background: var(--white);
+    color: var(--black);
+    font-size: 1.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s;
+  }
+  .site-nav a { font-size: 1.6rem; }
+  .menu-open .site-nav { opacity: 1; pointer-events: auto; }
+  .menu-open .menu-toggle { position: relative; z-index: 30; color: var(--black); }
+  .social { margin: 12px 0 0; }
+}
+
+/* ---------- Hero (home) ---------- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  color: var(--white);
+  background: #000 url("../images/hero-band.jpg") center / cover no-repeat;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.35), rgba(0,0,0,0) 45%);
+}
+.hero .container { position: relative; z-index: 1; padding-bottom: clamp(48px, 7vw, 80px); }
+.hero h3 { margin-bottom: 0.3em; }
+.hero h1 { margin: 0; }
+.hero h1 strong { font-weight: 700; }
+
+/* ---------- Split (text + image) ---------- */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: clamp(32px, 6vw, 80px);
+}
+.split--media-left .split__media { order: -1; }
+.split__media img { width: 100%; height: auto; }
+.split__text p { max-width: 34em; }
+.split__text .btn { margin-top: 1em; }
+
+@media (max-width: 760px) {
+  .split { grid-template-columns: 1fr; }
+  .split--media-left .split__media { order: 0; }
+  .split__media { order: -1; }
+}
+
+/* Rounded top-right corner image (contact call-out on home) */
+.media-arch img { border-top-right-radius: 40%; aspect-ratio: 4 / 3; object-fit: cover; }
+
+/* ---------- Wave dividers ---------- */
+.wave {
+  display: block;
+  width: 100%;
+  height: clamp(40px, 6vw, 90px);
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+}
+.has-wave { padding-bottom: clamp(110px, 14vw, 200px); }
+
+/* ---------- Narrow centered copy ---------- */
+.narrow { max-width: 820px; margin: 0 auto; }
+
+/* ---------- Video grid ---------- */
+.videos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(16px, 3vw, 40px);
+  margin-top: 48px;
+}
+.video { position: relative; aspect-ratio: 16 / 9; background: #111; }
+.video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+@media (max-width: 760px) { .videos { grid-template-columns: 1fr; } }
+
+/* ---------- Accordion ---------- */
+.accordion { border-bottom: 1px solid currentColor; }
+.accordion details { border-top: 1px solid currentColor; }
+.accordion summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 0.15em 0;
+}
+.accordion summary::-webkit-details-marker { display: none; }
+.accordion summary::after {
+  content: "+";
+  font-weight: 300;
+  font-size: 1.6em;
+  line-height: 1;
+}
+.accordion details[open] summary::after { content: "\2212"; }
+.accordion .accordion__title { margin: 0; }
+.accordion__body { padding: 0.5em 0 1.8em; }
+
+.accordion--members summary { font-size: var(--fs-h2); }
+.accordion--members .accordion__title { font-size: inherit; font-weight: 500; }
+.accordion--members .accordion__body {
+  margin-left: 35%;
+  font-size: 1.15rem;
+}
+.accordion--members .instrument { font-style: italic; }
+@media (max-width: 760px) {
+  .accordion--members .accordion__body { margin-left: 0; }
+}
+
+.accordion--bios { max-width: 1000px; margin: 0 auto; }
+.accordion--bios summary { font-size: 1.05rem; padding: 0.6em 0; }
+.accordion--bios summary::after { font-size: 1.3em; }
+.accordion--bios .accordion__body { padding: 0.5em 8% 2em; font-size: 1.3rem; }
+
+/* ---------- About ---------- */
+.page-intro { padding-top: clamp(150px, 16vw, 190px); }
+.about-photo { max-width: 680px; margin: 0 auto; }
+
+/* ---------- Press ---------- */
+/* Collage: photos are placed in % of a fixed-proportion frame so the
+   layout holds together at any width. */
+.press-hero {
+  position: relative;
+  max-width: var(--max);
+  margin: 0 auto;
+  aspect-ratio: 1280 / 1100;
+}
+.press-hero__img { position: absolute; object-fit: cover; }
+.press-hero__img--a { left: 0;  top: 24%; width: 46%; height: 58%; filter: grayscale(1); }
+.press-hero__img--b { right: 4%; top: 11%; width: 34%; height: 28%; }
+.press-hero__img--c { right: 4%; top: 66%; width: 46%; height: 32%; }
+.press-hero h1 {
+  position: absolute;
+  left: 50%;
+  top: 46%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  margin: 0;
+}
+@media (max-width: 760px) {
+  .press-hero { aspect-ratio: auto; padding: 120px var(--gutter) 0; }
+  .press-hero__img { position: static; width: 100% !important; height: auto !important; margin-bottom: 16px; }
+  .press-hero h1 { position: static; transform: none; text-align: center; margin: 24px 0; }
+}
+
+.quotes { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 2.5em; }
+.quotes h3 { font-size: var(--fs-h3); }
+.quotes cite { font-style: normal; font-size: 0.9rem; }
+@media (max-width: 760px) { .quotes { grid-template-columns: 1fr; } }
+
+.who { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.who__body { font-size: 0.95rem; }
+.who__body a { color: var(--navy); }
+@media (max-width: 760px) { .who { grid-template-columns: 1fr; } }
+
+.gallery { columns: 4 220px; column-gap: 12px; }
+.gallery a { display: block; margin-bottom: 12px; break-inside: avoid; }
+
+.crown { font-size: 0.95rem; }
+.crown blockquote { margin: 0 0 1.5em; font-style: italic; }
+
+/* ---------- Contact ---------- */
+.contact-hero { min-height: 600px; padding-top: 180px; }
+.contact-hero .container { max-width: 1100px; }
+
+/* ==========================================================================
+   RE: in_coding feature — glitch reveal
+   The artwork is one flattened image, so the "text" glitches in by:
+   1) splitting the image into R, G and B channel layers that are pulled
+      apart and snap back together (chromatic aberration), and
+   2) revealing it top-to-bottom in stepped lines, like code being printed,
+   3) while horizontal slices of the image jitter sideways.
+   When the layers line up, multiply-blending them rebuilds the exact image.
+   ========================================================================== */
+
+.glitch {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  background: var(--white);
+  overflow: hidden;
+  isolation: isolate;
+}
+.glitch__layer,
+.glitch__slice {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.glitch__layer { mix-blend-mode: multiply; }
+.glitch__layer--r { filter: url(#keep-red); }
+.glitch__layer--g { filter: url(#keep-green); }
+.glitch__layer--b { filter: url(#keep-blue); }
+.glitch__slice { opacity: 0; z-index: 2; }
+
+/* Before the section scrolls into view: hidden. */
+.glitch:not(.is-revealed) .glitch__stack { clip-path: inset(0 0 100% 0); }
+
+.glitch__stack { position: absolute; inset: 0; }
+
+/* First reveal */
+.glitch.is-revealed:not(.is-done) .glitch__stack {
+  animation: glitch-print 1.4s steps(12, end) both;
+}
+.glitch.is-revealed:not(.is-done) .glitch__layer--r { animation: glitch-r 1.9s cubic-bezier(.2,.7,.3,1) both; }
+.glitch.is-revealed:not(.is-done) .glitch__layer--b { animation: glitch-b 1.9s cubic-bezier(.2,.7,.3,1) both; }
+.glitch.is-revealed:not(.is-done) .glitch__slice--1 { animation: glitch-slice-1 1.9s steps(1, end) both; }
+.glitch.is-revealed:not(.is-done) .glitch__slice--2 { animation: glitch-slice-2 1.9s steps(1, end) both; }
+.glitch.is-revealed:not(.is-done) .glitch__slice--3 { animation: glitch-slice-3 1.9s steps(1, end) both; }
+
+/* Short replay on hover, after the reveal has finished */
+.glitch.is-done.is-replaying .glitch__layer--r { animation: glitch-r 0.6s cubic-bezier(.2,.7,.3,1) both; }
+.glitch.is-done.is-replaying .glitch__layer--b { animation: glitch-b 0.6s cubic-bezier(.2,.7,.3,1) both; }
+.glitch.is-done.is-replaying .glitch__slice--1 { animation: glitch-slice-1 0.6s steps(1, end) both; }
+.glitch.is-done.is-replaying .glitch__slice--2 { animation: glitch-slice-2 0.6s steps(1, end) both; }
+
+@keyframes glitch-print {
+  from { clip-path: inset(0 0 100% 0); }
+  to   { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes glitch-r {
+  0%   { transform: translate(-14px, 0); }
+  12%  { transform: translate(10px, -2px); }
+  24%  { transform: translate(-8px, 2px); }
+  38%  { transform: translate(6px, 0); }
+  52%  { transform: translate(-4px, 1px); }
+  64%  { transform: translate(18px, 0); }
+  70%  { transform: translate(-3px, 0); }
+  84%  { transform: translate(2px, 0); }
+  100% { transform: translate(0, 0); }
+}
+@keyframes glitch-b {
+  0%   { transform: translate(14px, 0); }
+  12%  { transform: translate(-10px, 2px); }
+  24%  { transform: translate(8px, -2px); }
+  38%  { transform: translate(-6px, 0); }
+  52%  { transform: translate(4px, -1px); }
+  64%  { transform: translate(-18px, 0); }
+  70%  { transform: translate(3px, 0); }
+  84%  { transform: translate(-2px, 0); }
+  100% { transform: translate(0, 0); }
+}
+
+/* Slices: a thin band of the image appears shifted sideways, then vanishes. */
+@keyframes glitch-slice-1 {
+  0%   { opacity: 1; clip-path: inset(8% 0 84% 0);  transform: translateX(-6%); }
+  10%  { opacity: 1; clip-path: inset(30% 0 62% 0); transform: translateX(5%); }
+  22%  { opacity: 0; }
+  40%  { opacity: 1; clip-path: inset(55% 0 38% 0); transform: translateX(-9%); }
+  48%  { opacity: 1; clip-path: inset(72% 0 20% 0); transform: translateX(7%); }
+  58%  { opacity: 0; }
+  76%  { opacity: 1; clip-path: inset(80% 0 8% 0);  transform: translateX(-4%); }
+  82%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+@keyframes glitch-slice-2 {
+  0%   { opacity: 0; }
+  16%  { opacity: 1; clip-path: inset(18% 0 76% 0); transform: translateX(8%); }
+  28%  { opacity: 1; clip-path: inset(44% 0 50% 0); transform: translateX(-5%); }
+  36%  { opacity: 0; }
+  60%  { opacity: 1; clip-path: inset(62% 0 30% 0); transform: translateX(12%); }
+  68%  { opacity: 1; clip-path: inset(86% 0 4% 0);  transform: translateX(-7%); }
+  74%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+@keyframes glitch-slice-3 {
+  0%   { opacity: 0; }
+  32%  { opacity: 1; clip-path: inset(36% 0 58% 0); transform: translateX(-12%); }
+  44%  { opacity: 0; }
+  66%  { opacity: 1; clip-path: inset(68% 0 22% 0); transform: translateX(10%); }
+  72%  { opacity: 1; clip-path: inset(76% 0 16% 0); transform: translateX(-3%); }
+  88%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glitch:not(.is-revealed) .glitch__stack { clip-path: none; }
+  .glitch .glitch__stack,
+  .glitch .glitch__layer,
+  .glitch .glitch__slice { animation: none !important; }
+}
+
+/* Visually hidden helper */
+.sr-only {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
