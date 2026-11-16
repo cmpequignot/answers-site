@@ -35,7 +35,7 @@
   })();
 })();
 
-// RE: in_coding glitch reveal: plays once when the artwork scrolls into view,
+// RE:in_coding glitch reveal: plays once when the artwork scrolls into view,
 // then a short glitch replays whenever it's hovered.
 (function () {
   // A .glitch can be written as just <div class="glitch"><img ...></div>;
