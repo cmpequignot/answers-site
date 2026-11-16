@@ -20,7 +20,7 @@ python3 -m http.server 8000
 
 Then visit http://localhost:8000.
 
-## RE: in_coding feature (home page)
+## RE:in_coding feature (home page)
 The section under the hero shows `images/re-in-coding-gnarly.png`, exported from page 3 ("SAMPLE I GNARLY") of the Canva design *ANSWERS / / RE : IN _ CODING PART I. IN MORNING (ECHOES)*.
 
 The artwork is one flattened image, so the glitch is done by stacking copies of it:
@@ -30,11 +30,11 @@ The artwork is one flattened image, so the glitch is done by stacking copies of 
 
 It plays once when scrolled into view and gives a short glitch on hover. Visitors with reduced motion turned on see the static image.
 
-The **Learn More** button links to the RE: in_coding page.
+The **Learn More** button links to the RE:in_coding page.
 
 The glitch effect can be reused anywhere: write `<div class="glitch"><img src="..." alt="..."></div>` and `js/main.js` builds the layers. The page also needs the three hidden SVG colour filters from the bottom of `index.html`. A `.glitch` must keep its white background, because the layers are multiply-blended.
 
-## RE: in_coding page
+## RE:in_coding page
 `re-in-coding.html` uses a retro-terminal theme (`css/re-in-coding.css`) and the same header as the rest of the site. The artwork in `images/re-in-coding/` comes from the Canva design above. The text and performance photos come from the band's project proposal.
 
 **Releases:** each movement has two singles, the Part and the sample it was born from, for ten in total before the full album. Each movement has two buttons in a `.ric-listen` group.

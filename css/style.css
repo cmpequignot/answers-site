@@ -8,7 +8,7 @@
   --black: #000;
   --white: #fff;
   --navy: #253551;
-  --pink: #ff6ec7;          /* matches the RE: in_coding artwork */
+  --pink: #ff6ec7;          /* matches the RE:in_coding artwork */
   --gutter: clamp(16px, 4vw, 52px);
   --max: 1400px;
 
@@ -316,7 +316,7 @@ a { color: inherit; }
 .contact-hero .container { max-width: 1100px; }
 
 /* ==========================================================================
-   RE: in_coding feature — glitch reveal
+   RE:in_coding feature — glitch reveal
    The artwork is one flattened image, so the "text" glitches in by:
    1) splitting the image into R, G and B channel layers that are pulled
       apart and snap back together (chromatic aberration), and
