@@ -100,7 +100,7 @@
 .ric-hero__bg {
   position: absolute;
   inset: 0;
-  background: url("../images/re-in-coding/part1-cover-green.jpg") center / cover;
+  background: url("../images/re-in-coding/part1-cover-green.webp") center / cover;
   opacity: 0.16;
   animation: ric-drift 40s linear infinite alternate;
 }

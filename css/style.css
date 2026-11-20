@@ -172,7 +172,7 @@ a { color: inherit; }
   display: flex;
   align-items: flex-end;
   color: var(--white);
-  background: #000 url("../images/hero-band.jpg") center / cover no-repeat;
+  background: #000 url("../images/hero-band.webp") center / cover no-repeat;
 }
 .hero::after {
   content: "";
