@@ -278,7 +278,7 @@ a { color: inherit; }
 
 /* ---------- About ---------- */
 .page-intro { padding-top: clamp(150px, 16vw, 190px); }
-.about-photo { max-width: 680px; margin: 0 auto; }
+.about-photo { width: 100%; max-width: 680px; margin: 0 auto; }
 
 /* ---------- Press ---------- */
 /* Collage: photos are placed in % of a fixed-proportion frame so the
