@@ -46,3 +46,11 @@ On release day:
 2. Replace the placeholder with the image. A cover is a plain `<img>`. A sample uses `<div class="glitch"><img ...></div>` so it gets the glitch reveal.
 
 **To switch on a released single:** find its button, for example `sample 2: coming soon`. Replace it with `<a class="term-btn" href="BANDCAMP LINK">listen: sample 2</a>`. Then update the "3 of 10 out now" count above the movements.
+
+## Social sharing previews
+Each page's `<head>` has OpenGraph and Twitter/X tags, so links shared in iMessage, Instagram, Facebook, Slack, Discord and so on show a title, description and photo.
+
+- The preview images are in `images/og/`. Each is 1200×630, cropped from a band photo.
+- Image and page addresses must be full URLs that start with `https://thebandisanswers.com/`.
+- When you add a page, copy the block from an existing page and update the title, description, `og:url` and image.
+- After a deploy, platforms cache previews. To refresh one, use Facebook's [Sharing Debugger](https://developers.facebook.com/tools/debug/) and click **Scrape Again**.
