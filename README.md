@@ -8,6 +8,7 @@ A plain HTML/CSS rebuild of thebandisanswers.com, with no build step.
 - `about.html`
 - `press.html`
 - `contact.html`
+- `404.html` (shown for any address that doesn't exist)
 
 Styles are in `css/style.css`, the small amount of JavaScript (mobile menu and the glitch reveal) is in `js/main.js`, and photos are in `images/`.
 
@@ -60,3 +61,11 @@ Each page's `<head>` has OpenGraph and Twitter/X tags, so links shared in iMessa
 - `robots.txt` allows all crawlers and points them to `sitemap.xml`.
 - `sitemap.xml` lists every page. When you add a page, add it here and give it a canonical tag. When a page changes a lot, update its `<lastmod>` date.
 - When the site is live, submit `https://thebandisanswers.com/sitemap.xml` in [Google Search Console](https://search.google.com/search-console) to get the pages indexed faster.
+
+## Structured data
+`index.html` has a `<script type="application/ld+json">` block that describes the band to search engines: name, location, members and instruments, albums, email and social profiles. It helps Google show a band info panel when people search for ANSWERS.
+
+Update it when the lineup changes, when an album comes out (add it to `album`), or when you add a social profile (add it to `sameAs`). To check it, use Google's [Rich Results Test](https://search.google.com/test/rich-results) or the [Schema Markup Validator](https://validator.schema.org/).
+
+## 404 page
+Vercel shows `404.html` for any address that doesn't exist. Its links and file paths start with `/` (for example `/css/style.css`), so they work even when the bad address is several folders deep. Keep them that way. The page is marked `noindex` so it never appears in search results.
