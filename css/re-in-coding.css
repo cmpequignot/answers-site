@@ -217,6 +217,7 @@
 .ric-part:first-of-type { border-top: 0; }
 .ric-part--no-cover { grid-template-columns: minmax(0, 1fr) minmax(0, 2.15fr); }
 .ric-part__art { position: relative; }
+.ric-video { display: block; width: 100%; height: auto; aspect-ratio: 1 / 1; background: #fff; }
 .ric-part__art .label {
   display: block;
   font-size: 0.75rem;
