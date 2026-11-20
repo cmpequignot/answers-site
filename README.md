@@ -54,3 +54,9 @@ Each page's `<head>` has OpenGraph and Twitter/X tags, so links shared in iMessa
 - Image and page addresses must be full URLs that start with `https://thebandisanswers.com/`.
 - When you add a page, copy the block from an existing page and update the title, description, `og:url` and image.
 - After a deploy, platforms cache previews. To refresh one, use Facebook's [Sharing Debugger](https://developers.facebook.com/tools/debug/) and click **Scrape Again**.
+
+## Search engines
+- Each page has a `<link rel="canonical">` with its full `https://thebandisanswers.com/` address. This tells search engines which address is the real one, for example when the same page is also reachable through a Vercel preview link.
+- `robots.txt` allows all crawlers and points them to `sitemap.xml`.
+- `sitemap.xml` lists every page. When you add a page, add it here and give it a canonical tag. When a page changes a lot, update its `<lastmod>` date.
+- When the site is live, submit `https://thebandisanswers.com/sitemap.xml` in [Google Search Console](https://search.google.com/search-console) to get the pages indexed faster.
