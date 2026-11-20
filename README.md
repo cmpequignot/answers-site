@@ -8,18 +8,23 @@ A plain HTML/CSS rebuild of thebandisanswers.com, with no build step.
 - `about.html`
 - `press.html`
 - `contact.html`
+- `re-in-coding.html`
 - `404.html` (shown for any address that doesn't exist)
 
 Styles are in `css/style.css`, the small amount of JavaScript (mobile menu and the glitch reveal) is in `js/main.js`, and photos are in `images/`. See **Images** below before adding one.
 
 ## Preview
-Open `index.html` in a browser. To serve it locally instead:
+The site uses clean addresses: `/about` instead of `/about.html`. `vercel.json` turns this on (`cleanUrls`). Vercel serves `about.html` at `/about` and redirects any old `.html` link to the clean address. Links between pages use the clean form too, for example `href="/about"`.
+
+Because of that, opening `index.html` straight from your files shows the home page, but links to other pages won't work. To preview the whole site, run a local server that understands clean addresses:
 
 ```bash
-python3 -m http.server 8000
+npx serve .
 ```
 
-Then visit http://localhost:8000.
+Then visit the address it prints (usually http://localhost:3000). `npx` comes with Node.js. The Vercel preview link on each pull request also works.
+
+When you add a page, link to it as `/page-name` with no `.html`, and use `https://thebandisanswers.com/page-name` in its canonical tag, `og:url` and `sitemap.xml`.
 
 ## RE:in_coding feature (home page)
 The section under the hero shows `images/re-in-coding-gnarly.webp`, exported from page 3 ("SAMPLE I GNARLY") of the Canva design *ANSWERS / / RE : IN _ CODING PART I. IN MORNING (ECHOES)*.
