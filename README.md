@@ -10,7 +10,7 @@ A plain HTML/CSS rebuild of thebandisanswers.com, with no build step.
 - `contact.html`
 - `404.html` (shown for any address that doesn't exist)
 
-Styles are in `css/style.css`, the small amount of JavaScript (mobile menu and the glitch reveal) is in `js/main.js`, and photos are in `images/`.
+Styles are in `css/style.css`, the small amount of JavaScript (mobile menu and the glitch reveal) is in `js/main.js`, and photos are in `images/`. See **Images** below before adding one.
 
 ## Preview
 Open `index.html` in a browser. To serve it locally instead:
@@ -22,7 +22,7 @@ python3 -m http.server 8000
 Then visit http://localhost:8000.
 
 ## RE:in_coding feature (home page)
-The section under the hero shows `images/re-in-coding-gnarly.png`, exported from page 3 ("SAMPLE I GNARLY") of the Canva design *ANSWERS / / RE : IN _ CODING PART I. IN MORNING (ECHOES)*.
+The section under the hero shows `images/re-in-coding-gnarly.webp`, exported from page 3 ("SAMPLE I GNARLY") of the Canva design *ANSWERS / / RE : IN _ CODING PART I. IN MORNING (ECHOES)*.
 
 The artwork is one flattened image, so the glitch is done by stacking copies of it:
 - The red, green and blue channels are separate layers that start out offset and snap together.
@@ -69,3 +69,15 @@ Update it when the lineup changes, when an album comes out (add it to `album`), 
 
 ## 404 page
 Vercel shows `404.html` for any address that doesn't exist. Its links and file paths start with `/` (for example `/css/style.css`), so they work even when the bad address is several folders deep. Keep them that way. The page is marked `noindex` so it never appears in search results.
+
+## Images
+Photos on the pages are WebP files, sized to about twice the largest width each is shown at, so they stay sharp on phones and Retina screens without extra download. When you add a photo:
+
+1. Work out the widest it will appear on the page (for example, a half-width column on desktop is about 600px), and resize it to about twice that. Full-screen backgrounds top out at 1920px.
+2. Export it as WebP at quality 80, or 85 for artwork with fine text. Squoosh (squoosh.app) does both in the browser.
+3. Set `width` and `height` on the `<img>` to the file's real size. That stops the page jumping around while it loads.
+
+Exceptions:
+- **Press kit downloads** (`images/press/`) are the original full-resolution JPGs. The press page gallery shows the small WebP versions and links each one to its JPG here, so journalists can download print-quality files.
+- **Social preview images** (`images/og/`) stay JPG, because some apps don't show WebP link previews.
+- **Favicons** stay PNG/ICO.
