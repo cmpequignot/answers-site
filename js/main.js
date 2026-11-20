@@ -97,3 +97,12 @@
     });
   });
 })();
+
+// Looping artwork videos stay on their still poster for visitors who prefer reduced motion.
+(function () {
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  document.querySelectorAll('video[autoplay]').forEach(function (v) {
+    v.removeAttribute('autoplay');
+    v.pause();
+  });
+})();
