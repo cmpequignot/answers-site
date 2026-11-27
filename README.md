@@ -51,7 +51,7 @@ On release day:
 1. Export the art from Canva into `images/re-in-coding/`.
 2. Replace the placeholder with the image. A cover is a plain `<img>`. A sample uses `<div class="glitch"><img ...></div>` so it gets the glitch reveal.
 
-**To switch on a released single:** find its button, for example `sample 2: coming soon`. Replace it with `<a class="term-btn" href="BANDCAMP LINK">listen: sample 2</a>`. Then update the "3 of 10 out now" count above the movements.
+**To switch on a released single:** find its button, for example `sample 2: coming soon`. Replace it with `<a class="term-btn" href="BANDCAMP LINK">listen: sample 2</a>`. Then update the "N of 10 out now" count above the movements.
 
 ## Social sharing previews
 Each page's `<head>` has OpenGraph and Twitter/X tags, so links shared in iMessage, Instagram, Facebook, Slack, Discord and so on show a title, description and photo.
